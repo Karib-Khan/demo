@@ -15,7 +15,6 @@ export function IntroSplash({ onComplete }: IntroSplashProps) {
   const imgRef = useRef<HTMLImageElement>(null);
   const hasAnimatedRef = useRef(false);
 
-  // Detect cached image immediately or fallback if image takes too long
   useEffect(() => {
     if (imgRef.current?.complete) {
       setLogoLoaded(true);
@@ -79,7 +78,7 @@ export function IntroSplash({ onComplete }: IntroSplashProps) {
       ref={overlayRef}
       role="status"
       aria-label="Loading Madinah Furniture Buyer"
-      className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#FAF8F5]"
+      className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[var(--brand-canvas)]"
     >
       <div
         ref={logoWrapRef}
@@ -91,17 +90,17 @@ export function IntroSplash({ onComplete }: IntroSplashProps) {
           alt={BUSINESS_CONTACT.brandEn}
           onLoad={() => setLogoLoaded(true)}
           onError={() => setLogoLoaded(true)}
-          className="w-44 h-44 sm:w-52 sm:h-52 rounded-full object-cover shadow-lg border border-[#E5E2DC] bg-white"
+          className="w-44 h-44 sm:w-52 sm:h-52 rounded-full object-cover shadow-lg border border-[var(--brand-border)] bg-white"
         />
 
-        <div className="w-48 h-1.5 rounded-full bg-[#E5E2DC] overflow-hidden">
+        <div className="w-48 h-1.5 rounded-full bg-[var(--brand-border)] overflow-hidden">
           <div
             ref={barRef}
-            className="h-full w-full origin-left bg-[#0E6B4E] rounded-full"
+            className="h-full w-full origin-left bg-[var(--brand-accent)] rounded-full"
           />
         </div>
 
-        <p className="font-display text-sm sm:text-base font-bold text-[#11181C] tracking-tight">
+        <p className="font-display text-sm sm:text-base font-bold text-[var(--brand-ink)] tracking-tight">
           {BUSINESS_CONTACT.brandAr} · {BUSINESS_CONTACT.brandEn}
         </p>
       </div>

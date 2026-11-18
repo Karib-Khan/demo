@@ -1,5 +1,31 @@
 @import "tailwindcss";
 
+:root {
+  --brand-canvas: #F6F1E7;
+  --brand-section-alt: #EFE6D5;
+  --brand-card: #FFFFFF;
+  --brand-surface-muted: #E6DBC6;
+  --brand-surface-subtle: #EFE9DC;
+  --brand-border: #D8CCB4;
+  --brand-border-strong: #BCA988;
+  --brand-ink: #0E241C;
+  --brand-ink-muted: #344E44;
+  --brand-ink-subtle: #526B61;
+  --brand-accent: #065F46;
+  --brand-accent-hover: #064E3B;
+  --brand-accent-text: #FFFFFF;
+  --brand-accent-2: #C27803;
+  --brand-accent-on-dark: #FCD34D;
+  --brand-secondary-bg: #0E241C;
+  --brand-secondary-text: #FFFFFF;
+  --brand-hero-bg: #064E3B;
+  --brand-hero-ink: #FFFFFF;
+  --brand-hero-muted: #D1FAE5;
+  --brand-dark-bg: #063B2D;
+  --brand-footer-bg: #04281E;
+  --brand-star: #C27803;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -7,8 +33,8 @@
 
   body {
     font-family: "IBM Plex Sans Arabic", "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
-    background-color: #FAF8F5;
-    color: #11181C;
+    background-color: var(--brand-canvas);
+    color: var(--brand-ink);
   }
 
   html[dir="ltr"] body {

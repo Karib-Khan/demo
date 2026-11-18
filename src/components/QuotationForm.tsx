@@ -89,16 +89,16 @@ export function QuotationForm({
 
   if (submitted) {
     return (
-      <div className="rounded-xl bg-white p-6 sm:p-8 border border-[#E5E2DC] text-[#11181C]">
+      <div className="rounded-xl bg-[var(--brand-card)] p-6 sm:p-8 border border-[var(--brand-border)] text-[var(--brand-ink)]">
         <div className="flex items-start gap-3 mb-4">
-          <CheckCircle2 className="w-6 h-6 text-[#0E6B4E] shrink-0 mt-0.5" />
+          <CheckCircle2 className="w-6 h-6 text-[var(--brand-accent)] shrink-0 mt-0.5" />
           <div>
-            <h3 className="font-display text-xl font-bold text-[#11181C]">
+            <h3 className="font-display text-xl font-bold text-[var(--brand-ink)]">
               {lang === 'ar'
                 ? 'تم استلام طلب التسعيرة بنجاح'
                 : 'Quotation Request Received'}
             </h3>
-            <p className="text-sm text-[#4B555B] mt-1 leading-relaxed">
+            <p className="text-sm text-[var(--brand-ink-muted)] mt-1 leading-relaxed">
               {lang === 'ar'
                 ? `شكراً لك يا ${name}. سيتواصل معك المقيّم المختص على الرقم ${phone} خلال 15 دقيقة.`
                 : `Thank you, ${name}. Our local appraiser will reach out to ${phone} within 15 minutes.`}
@@ -106,9 +106,9 @@ export function QuotationForm({
           </div>
         </div>
 
-        <div className="rounded-lg bg-[#FAF8F5] border border-[#E5E2DC] p-4 text-xs text-[#4B555B] space-y-1.5 mb-5">
+        <div className="rounded-lg bg-[var(--brand-surface-subtle)] border border-[var(--brand-border)] p-4 text-xs text-[var(--brand-ink-muted)] space-y-1.5 mb-5">
           <p>
-            <strong className="text-[#11181C]">
+            <strong className="text-[var(--brand-ink)]">
               {lang === 'ar' ? 'الحي:' : 'District:'}
             </strong>{' '}
             {lang === 'ar'
@@ -116,7 +116,7 @@ export function QuotationForm({
               : selectedDistrictObj?.nameEn}
           </p>
           <p>
-            <strong className="text-[#11181C]">
+            <strong className="text-[var(--brand-ink)]">
               {lang === 'ar' ? 'الفئة:' : 'Category:'}
             </strong>{' '}
             {lang === 'ar'
@@ -125,7 +125,7 @@ export function QuotationForm({
           </p>
           {details && (
             <p>
-              <strong className="text-[#11181C]">
+              <strong className="text-[var(--brand-ink)]">
                 {lang === 'ar' ? 'التفاصيل:' : 'Details:'}
               </strong>{' '}
               {details}
@@ -138,7 +138,7 @@ export function QuotationForm({
             href={whatsappSummaryUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 inline-flex items-center justify-center gap-2 rounded-lg bg-[#0E6B4E] px-4 py-3 text-sm font-semibold text-white hover:bg-[#0A533C] transition-colors whitespace-nowrap"
+            className="flex-1 inline-flex items-center justify-center gap-2 rounded-lg bg-[var(--brand-accent)] px-4 py-3 text-sm font-semibold text-[var(--brand-accent-text)] hover:bg-[var(--brand-accent-hover)] transition-colors whitespace-nowrap"
           >
             <MessageCircle className="w-4 h-4 shrink-0" />
             <span>
@@ -153,7 +153,7 @@ export function QuotationForm({
               setSubmitted(false);
               setDetails('');
             }}
-            className="inline-flex items-center justify-center rounded-lg border border-[#D4CFC5] px-4 py-3 text-sm font-medium text-[#11181C] hover:bg-[#FAF8F5] transition-colors whitespace-nowrap"
+            className="inline-flex items-center justify-center rounded-lg border border-[var(--brand-border-strong)] px-4 py-3 text-sm font-medium text-[var(--brand-ink)] hover:bg-[var(--brand-surface-subtle)] transition-colors whitespace-nowrap"
           >
             {lang === 'ar' ? 'طلب جديد' : 'Submit Another'}
           </button>
@@ -166,15 +166,15 @@ export function QuotationForm({
     <form
       onSubmit={handleSubmit}
       noValidate
-      className="rounded-xl bg-white p-6 sm:p-8 border border-[#E5E2DC] text-[#11181C]"
+      className="rounded-xl bg-[var(--brand-card)] p-6 sm:p-8 border border-[var(--brand-border)] text-[var(--brand-ink)]"
     >
       <div className="mb-5">
-        <h3 className="font-display text-xl font-bold text-[#11181C]">
+        <h3 className="font-display text-xl font-bold text-[var(--brand-ink)]">
           {lang === 'ar'
             ? 'اطلب تسعيرة فورية لأثاثك'
             : 'Request a Fair Quotation'}
         </h3>
-        <p className="text-sm text-[#4B555B] mt-1">
+        <p className="text-sm text-[var(--brand-ink-muted)] mt-1">
           {lang === 'ar'
             ? 'اترك بياناتك وسيتواصل معك مسؤول الشراء في المدينة المنورة خلال دقائق.'
             : 'Share your items and Madinah neighborhood for an instant callback quote.'}
@@ -184,9 +184,9 @@ export function QuotationForm({
       {errorMsg && (
         <div
           role="alert"
-          className="mb-4 flex items-start gap-2.5 rounded-lg border border-red-300 bg-red-50 px-3.5 py-2.5 text-xs font-medium text-red-900"
+          className="mb-4 flex items-start gap-2.5 rounded-lg border border-red-400/50 bg-red-500/10 px-3.5 py-2.5 text-xs font-medium text-red-500"
         >
-          <AlertCircle className="w-4 h-4 text-red-700 shrink-0 mt-0.5" />
+          <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
           <span>{errorMsg}</span>
         </div>
       )}
@@ -195,7 +195,7 @@ export function QuotationForm({
         <div>
           <label
             htmlFor="quote-name"
-            className="block text-xs font-semibold text-[#11181C] mb-1.5"
+            className="block text-xs font-semibold text-[var(--brand-ink)] mb-1.5"
           >
             {lang === 'ar' ? 'الاسم الكامل' : 'Your Name'}
           </label>
@@ -205,14 +205,14 @@ export function QuotationForm({
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder={lang === 'ar' ? 'مثال: خالد الحربي' : 'e.g. Khalid Al-Harbi'}
-            className="w-full h-11 rounded-lg border border-[#D4CFC5] bg-[#FAF8F5] px-3.5 text-sm text-[#11181C] placeholder:text-[#7A8288] focus:border-[#0E6B4E] focus:bg-white focus:outline-none"
+            className="w-full h-11 rounded-lg border border-[var(--brand-border-strong)] bg-[var(--brand-surface-subtle)] px-3.5 text-sm text-[var(--brand-ink)] placeholder:text-[var(--brand-ink-subtle)] focus:border-[var(--brand-accent)] focus:outline-none"
           />
         </div>
 
         <div>
           <label
             htmlFor="quote-phone"
-            className="block text-xs font-semibold text-[#11181C] mb-1.5"
+            className="block text-xs font-semibold text-[var(--brand-ink)] mb-1.5"
           >
             {lang === 'ar' ? 'رقم الجوال (واتساب / اتصال)' : 'Saudi Mobile Number'}
           </label>
@@ -223,7 +223,7 @@ export function QuotationForm({
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             placeholder="05XXXXXXXX"
-            className="w-full h-11 rounded-lg border border-[#D4CFC5] bg-[#FAF8F5] px-3.5 text-sm text-[#11181C] placeholder:text-[#7A8288] tabular-nums focus:border-[#0E6B4E] focus:bg-white focus:outline-none"
+            className="w-full h-11 rounded-lg border border-[var(--brand-border-strong)] bg-[var(--brand-surface-subtle)] px-3.5 text-sm text-[var(--brand-ink)] placeholder:text-[var(--brand-ink-subtle)] tabular-nums focus:border-[var(--brand-accent)] focus:outline-none"
           />
         </div>
       </div>
@@ -232,7 +232,7 @@ export function QuotationForm({
         <div>
           <label
             htmlFor="quote-district"
-            className="block text-xs font-semibold text-[#11181C] mb-1.5"
+            className="block text-xs font-semibold text-[var(--brand-ink)] mb-1.5"
           >
             {lang === 'ar' ? 'الحي في المدينة المنورة' : 'Madinah Neighborhood'}
           </label>
@@ -240,7 +240,7 @@ export function QuotationForm({
             id="quote-district"
             value={district}
             onChange={(e) => setDistrict(e.target.value)}
-            className="w-full h-11 rounded-lg border border-[#D4CFC5] bg-[#FAF8F5] px-3 text-sm text-[#11181C] focus:border-[#0E6B4E] focus:bg-white focus:outline-none"
+            className="w-full h-11 rounded-lg border border-[var(--brand-border-strong)] bg-[var(--brand-surface-subtle)] px-3 text-sm text-[var(--brand-ink)] focus:border-[var(--brand-accent)] focus:outline-none"
           >
             {MADINAH_DISTRICTS.map((d) => (
               <option key={d.id} value={d.id}>
@@ -253,7 +253,7 @@ export function QuotationForm({
         <div>
           <label
             htmlFor="quote-category"
-            className="block text-xs font-semibold text-[#11181C] mb-1.5"
+            className="block text-xs font-semibold text-[var(--brand-ink)] mb-1.5"
           >
             {lang === 'ar' ? 'نوع الأثاث أو الأجهزة' : 'Item Category'}
           </label>
@@ -261,7 +261,7 @@ export function QuotationForm({
             id="quote-category"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
-            className="w-full h-11 rounded-lg border border-[#D4CFC5] bg-[#FAF8F5] px-3 text-sm text-[#11181C] focus:border-[#0E6B4E] focus:bg-white focus:outline-none"
+            className="w-full h-11 rounded-lg border border-[var(--brand-border-strong)] bg-[var(--brand-surface-subtle)] px-3 text-sm text-[var(--brand-ink)] focus:border-[var(--brand-accent)] focus:outline-none"
           >
             {SERVICES_LIST.map((s) => (
               <option key={s.id} value={s.id}>
@@ -275,7 +275,7 @@ export function QuotationForm({
       <div className="mb-5">
         <label
           htmlFor="quote-details"
-          className="block text-xs font-semibold text-[#11181C] mb-1.5"
+          className="block text-xs font-semibold text-[var(--brand-ink)] mb-1.5"
         >
           {lang === 'ar'
             ? 'وصف سريع للقطع وعددها (اختياري)'
@@ -291,13 +291,13 @@ export function QuotationForm({
               ? 'مثال: غرفة نوم نظيفة + مكيفين سبليت جري 24 وحدة + كنب زاوية'
               : 'e.g. Clean king bedroom set + two 24k BTU Gree split ACs + L-shaped sofa'
           }
-          className="w-full rounded-lg border border-[#D4CFC5] bg-[#FAF8F5] p-3.5 text-sm text-[#11181C] placeholder:text-[#7A8288] focus:border-[#0E6B4E] focus:bg-white focus:outline-none resize-none"
+          className="w-full rounded-lg border border-[var(--brand-border-strong)] bg-[var(--brand-surface-subtle)] p-3.5 text-sm text-[var(--brand-ink)] placeholder:text-[var(--brand-ink-subtle)] focus:border-[var(--brand-accent)] focus:outline-none resize-none"
         />
       </div>
 
       <button
         type="submit"
-        className="w-full h-12 inline-flex items-center justify-center gap-2 rounded-lg bg-[#0E6B4E] px-6 text-sm font-semibold text-white hover:bg-[#0A533C] transition-colors cursor-pointer"
+        className="w-full h-12 inline-flex items-center justify-center gap-2 rounded-lg bg-[var(--brand-accent)] px-6 text-sm font-semibold text-[var(--brand-accent-text)] hover:bg-[var(--brand-accent-hover)] transition-colors cursor-pointer"
       >
         <Send className="w-4 h-4 shrink-0" />
         <span>
@@ -307,7 +307,7 @@ export function QuotationForm({
         </span>
       </button>
 
-      <p className="text-[11px] text-[#5C646A] mt-3 text-center">
+      <p className="text-[11px] text-[var(--brand-ink-subtle)] mt-3 text-center">
         {lang === 'ar'
           ? 'معاينة وتسعير مجاني بدون أي التزام · خصوصية تامة لبياناتك'
           : '100% free no-obligation quote · Your contact details stay private'}
