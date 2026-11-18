@@ -404,7 +404,7 @@ export default function App() {
   return (
     <div
       ref={mainRef}
-      className="min-h-screen bg-[var(--brand-canvas)] text-[var(--brand-ink)] pb-16 md:pb-0 transition-colors duration-200"
+      className="min-h-screen max-w-full overflow-x-clip bg-[var(--brand-canvas)] text-[var(--brand-ink)] pb-[calc(4rem+env(safe-area-inset-bottom))] md:pb-0 transition-colors duration-200"
     >
       {/* First-load Brand Logo Loading Screen */}
       <IntroSplash onComplete={handleSplashComplete} />
@@ -414,14 +414,14 @@ export default function App() {
 
       {/* Toolbar: 4 Layout Variants + 6 Rich Color Mockups + Language Switch */}
       <div className="border-b border-[var(--brand-border)] bg-[var(--brand-surface-muted)]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex flex-wrap items-center justify-between gap-3">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-2.5 flex flex-col xl:flex-row xl:items-center justify-between gap-2.5 min-w-0">
           <LayoutSwitcher
             lang={lang}
             activeLayout={layoutVariant}
             onSelect={setLayoutVariant}
           />
 
-          <div className="flex flex-wrap items-center gap-2.5 shrink-0">
+          <div className="flex min-w-0 w-full xl:w-auto items-center gap-2.5">
             <PaletteSwitcher
               lang={lang}
               activePalette={activePalette}
@@ -1832,19 +1832,19 @@ export default function App() {
       </footer>
 
       {/* Sticky Bottom Conversion Bar on Mobile (<= 56px) */}
-      <div className="md:hidden fixed inset-x-0 bottom-0 z-40 h-14 bg-[var(--brand-card)] border-t border-[var(--brand-border-strong)] px-3 flex items-center gap-2.5 shadow-lg">
+      <div className="md:hidden fixed inset-x-0 bottom-0 z-40 min-h-14 pb-[env(safe-area-inset-bottom)] bg-[var(--brand-card)] border-t border-[var(--brand-border-strong)] px-3 py-1.5 flex items-center gap-2 shadow-lg">
         <a
           href={BUSINESS_CONTACT.phoneHref}
-          className="flex-1 h-11 inline-flex items-center justify-center gap-2 rounded-lg bg-[var(--brand-secondary-bg)] text-[var(--brand-secondary-text)] text-xs font-bold tabular-nums"
+          className="min-w-0 flex-1 h-11 inline-flex items-center justify-center gap-1.5 rounded-lg bg-[var(--brand-secondary-bg)] text-[var(--brand-secondary-text)] text-xs font-bold tabular-nums"
         >
           <Phone className="w-4 h-4 shrink-0" />
-          <span>{lang === 'ar' ? 'اتصل 0509653244' : 'Call 0509653244'}</span>
+          <span>{lang === 'ar' ? 'اتصل الآن' : 'Call Now'}</span>
         </a>
         <a
           href={whatsappDirectUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-1 h-11 inline-flex items-center justify-center gap-2 rounded-lg bg-[var(--brand-accent)] text-[var(--brand-accent-text)] text-xs font-bold"
+          className="min-w-0 flex-1 h-11 inline-flex items-center justify-center gap-1.5 rounded-lg bg-[var(--brand-accent)] text-[var(--brand-accent-text)] text-xs font-bold"
         >
           <MessageCircle className="w-4 h-4 shrink-0" />
           <span>{lang === 'ar' ? 'واتساب فوري' : 'WhatsApp Us'}</span>
@@ -1876,7 +1876,7 @@ export default function App() {
           }
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4"
         >
-          <div className="w-full max-w-lg rounded-xl bg-[var(--brand-card)] border border-[var(--brand-border)] overflow-hidden shadow-2xl">
+          <div className="w-full max-w-lg max-h-[90dvh] overflow-y-auto rounded-xl bg-[var(--brand-card)] border border-[var(--brand-border)] shadow-2xl">
             <div className="aspect-[4/3] w-full bg-[var(--brand-surface-subtle)] relative">
               <ResilientImage
                 src={inspectedPurchase.image}

@@ -28,12 +28,12 @@ export function PaletteSwitcher({
   };
 
   return (
-    <div className="relative flex flex-wrap items-center gap-2">
+    <div className="relative flex min-w-0 flex-1 items-center gap-2">
       {/* 6 Full-Site Mockup Buttons */}
       <div
         role="group"
         aria-label={lang === 'ar' ? 'نماذج الألوان' : 'Website color mockups'}
-        className="inline-flex flex-wrap items-center gap-1 p-1 rounded-lg bg-[var(--brand-surface-subtle)] border border-[var(--brand-border)]"
+        className="flex min-w-0 flex-1 overflow-x-auto items-center gap-1 p-1 rounded-lg bg-[var(--brand-surface-subtle)] border border-[var(--brand-border)]"
       >
         {COLOR_PALETTES.map((palette) => {
           const isSelected = palette.id === activePalette.id;
@@ -44,7 +44,7 @@ export function PaletteSwitcher({
               onClick={() => onSelect(palette)}
               title={lang === 'ar' ? palette.nameAr : palette.nameEn}
               aria-pressed={isSelected}
-              className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-semibold transition-all whitespace-nowrap cursor-pointer ${
+              className={`shrink-0 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-semibold transition-all whitespace-nowrap cursor-pointer ${
                 isSelected
                   ? 'bg-[var(--brand-card)] text-[var(--brand-ink)] shadow-sm ring-1 ring-[var(--brand-border-strong)]'
                   : 'text-[var(--brand-ink-muted)] hover:text-[var(--brand-ink)]'
@@ -84,7 +84,7 @@ export function PaletteSwitcher({
             className="fixed inset-0 z-30"
             aria-hidden="true"
           />
-          <div className="absolute top-full mt-2 end-0 z-40 w-[330px] sm:w-[420px] max-h-[75vh] overflow-y-auto rounded-xl border border-[var(--brand-border-strong)] bg-[var(--brand-card)] p-4 shadow-2xl text-[var(--brand-ink)]">
+          <div className="absolute top-full mt-2 end-0 z-40 w-[min(420px,calc(100vw-2rem))] max-h-[75vh] overflow-y-auto rounded-xl border border-[var(--brand-border-strong)] bg-[var(--brand-card)] p-4 shadow-2xl text-[var(--brand-ink)]">
             <div className="flex items-center justify-between gap-2 pb-2.5 mb-3 border-b border-[var(--brand-border)]">
               <p className="font-display text-sm font-bold">
                 {lang === 'ar'

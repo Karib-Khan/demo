@@ -70,7 +70,7 @@ export function LayoutSwitcher({
     <div
       role="group"
       aria-label={lang === 'ar' ? 'تخطيطات الموقع' : 'Website layout variants'}
-      className="inline-flex flex-wrap items-center gap-1 p-1 rounded-lg bg-[var(--brand-surface-subtle)] border border-[var(--brand-border)]"
+      className="flex w-full max-w-full overflow-x-auto items-center gap-1 p-1 rounded-lg bg-[var(--brand-surface-subtle)] border border-[var(--brand-border)]"
     >
       {LAYOUT_VARIANTS.map((variant) => {
         const isActive = variant.id === activeLayout;
@@ -81,7 +81,7 @@ export function LayoutSwitcher({
             onClick={() => onSelect(variant.id)}
             title={lang === 'ar' ? variant.descAr : variant.descEn}
             aria-pressed={isActive}
-            className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-semibold transition-all whitespace-nowrap cursor-pointer ${
+            className={`shrink-0 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-semibold transition-all whitespace-nowrap cursor-pointer ${
               isActive
                 ? 'bg-[var(--brand-accent)] text-[var(--brand-accent-text)] shadow-sm'
                 : 'text-[var(--brand-ink-muted)] hover:text-[var(--brand-ink)]'
